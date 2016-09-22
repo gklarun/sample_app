@@ -4,7 +4,7 @@ describe "Static pages" do
   let(:base_title) { "Serler-web-app" }
   describe "Home page" do
 
-    it "should have the content 'Sample App'" do
+    it "should have the content 'Welcome to serler'" do
       visit '/static_pages/home'
       expect(page).to have_content('Welcome to Serler')
     end
