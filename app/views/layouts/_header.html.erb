@@ -1,8 +1,13 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse navbar-fixed-top">
+
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Serler", '#', id: "logo" %>
       <nav>
+
+        <ul class="nav pull-left">
+          <div id="logo"><%= image_tag("canvas.png",width: '60', height: '30', alt: 'Site Logo', class: "logo") %>
+          </div>
+          </ul>
         <ul class="nav pull-right">
           <li><%= link_to "Home",    '#' %></li>
           <li><%= link_to "Help",    '#' %></li>
@@ -17,15 +22,17 @@
               <li><%= link_to "Settings", '#' %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to "Sign out", signout_path, method: "delete" %>
+                <%= link_to "Logout", signout_path, method: "delete" %>
               </li>
             </ul>
           </li>
           <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <li><%= link_to "Login", signin_path %></li>
           <% end %>
         </ul>
-      </nav>
+
+
+       </nav>
     </div>
   </div>
 </header>
