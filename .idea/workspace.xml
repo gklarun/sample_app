@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66b9daa4-9e92-4a91-b01c-73d00e9ec398" name="Default" comment="test edits and links">
+    <list default="true" id="66b9daa4-9e92-4a91-b01c-73d00e9ec398" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/static_pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/static_pages/home.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
     </list>
     <ignored path="sample_app.iws" />
@@ -75,8 +72,8 @@
       <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+            <state relative-caret-position="15">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -733,7 +730,7 @@
       <workItem from="1474924816374" duration="2843000" />
       <workItem from="1474942145739" duration="1260000" />
       <workItem from="1474949982192" duration="4807000" />
-      <workItem from="1475012020164" duration="2743000" />
+      <workItem from="1475012020164" duration="2864000" />
     </task>
     <task id="LOCAL-00001" summary="Sprint One-Initial">
       <created>1473955380481</created>
@@ -756,11 +753,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475012568938</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test edits and links">
+      <created>1475014770737</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1475014770737</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101249000" />
+    <option name="totallyTimeSpent" value="101370000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -800,7 +804,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sprint One-Initial" />
     <MESSAGE value="added logo and style" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logo and style" />
+    <MESSAGE value="test edits and links" />
+    <option name="LAST_COMMIT_MESSAGE" value="test edits and links" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1150,8 +1155,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
           <folding />
         </state>
       </provider>
