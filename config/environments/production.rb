@@ -22,8 +22,8 @@ SampleApp::Application.configure do
       address:              'smtp.gmail.com',
       port:                 587,
       domain:               'gmail.com',
-      user_name:            'serler2016@gmail.com',
-      password:             'Logbaby12',
+      user_name:            'serler2106@gmail.com',
+      password:             'Serler12',
       authentication:       'plain',
       }
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
