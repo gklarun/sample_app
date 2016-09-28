@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
         # sign_in @user
-        flash[:success] = "Please confirm your email address to continue"
+        #flash[:success] = "Please confirm your email address to continue"
         format.html { redirect_to root_url, notice: 'User was successfully created,please confirm your email.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+      flash[:success] = "Welcome to the Serler! Your email has been confirmed.
       Please sign in to continue."
       redirect_to signin_url
     else
