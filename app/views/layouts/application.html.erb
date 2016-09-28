@@ -10,10 +10,28 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
+<div id="flash">
+  <a class="close" data-dismiss="alert">&#215;</a>
+  <p>
+    <%= flash[:success] unless flash[:success].blank? %>
+    <%= flash[:error] unless flash[:error].blank? %>
+  </p>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+      $('#flash').remove();
+    }, 5000);
+  })
+</script>
 <%= render 'layouts/header' %>
 <div class="container">
   <%= yield %>
+
+  <%= render partial: "layouts/flash_messages", flash: flash %>
   <%= render 'layouts/footer' %>
+
 </div>
 </body>
 </html>

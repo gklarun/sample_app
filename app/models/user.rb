@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  before_create  :create_remember_token
+  before_create :create_remember_token
+  before_create :confirmation_token
   before_save { self.email = email.downcase }
   validates :first_name,  presence: true, length: { maximum: 50 }
   validates :last_name,  presence: true, length: { maximum: 50 }
@@ -16,10 +17,22 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    save!(:validate => false)
+  end
+
   private
 
   def create_remember_token
    # puts "haiiii"
     self.remember_token = User.digest(User.new_remember_token)
+  end
+
+  def confirmation_token
+    if self.confirm_token.blank?
+      self.confirm_token = SecureRandom.urlsafe_base64.to_s
+    end
   end
 end

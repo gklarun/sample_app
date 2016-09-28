@@ -28,8 +28,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        sign_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        UserMailer.registration_confirmation(@user).deliver
+        # sign_in @user
+        flash[:success] = "Please confirm your email address to continue"
+        format.html { redirect_to root_url, notice: 'User was successfully created,please confirm your email.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -59,6 +61,19 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+    end
+  end
+
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
+      Please sign in to continue."
+      redirect_to signin_url
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
     end
   end
 
