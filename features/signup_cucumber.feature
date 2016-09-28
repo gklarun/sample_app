@@ -7,3 +7,8 @@ Feature: Register new user
     When I go to the signup page
     And  I enter the details and press submit button
     Then I should be registered
+
+  Scenario: I am trying to register with invalid details
+    When I go to the signup page
+    And  I enter invalid details and press submit button
+    Then I should not be registered
