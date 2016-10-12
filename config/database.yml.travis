@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  pool: 5
+  # these are our new parameters
+  encoding: UTF-8
+  database: serler_development
+  host: localhost
+  username: gklarun
+  password: password
+
+
+ test:
+   adapter: postgresql
+   database: travis_ci_test
+
+production:
+  # this won't work
+  adapter: postgresql
+  encoding: unicode
+  database: serler_production
+  pool: 5
+  username: gklarun
+  password: password
+cucumber:
+  <<: *test
