@@ -8,10 +8,10 @@ development:
   username: gklarun
   password: password
 
-
- test:
-   adapter: postgresql
-   database: travis_ci_test
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: travis_ci_test
 
 production:
   # this won't work
@@ -23,3 +23,4 @@ production:
   password: password
 cucumber:
   <<: *test
+
