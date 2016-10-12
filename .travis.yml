@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.0.0p648
+  - 2.0.0
 before_script:
   - bundle exec rake db:create
   - bundle exec rake db:test:prepare
