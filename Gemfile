@@ -4,7 +4,6 @@ ruby '2.1.2'
 
 gem 'rails', '4.0.8'
 gem 'rake', '11.3.0'
-gem 'mysql2','~> 0.3.20'
 gem 'byebug'
 gem 'bcrypt'
 gem 'slim'
@@ -25,6 +24,7 @@ group :development, :test do
   #gem 'sqlite3', '1.3.8'
 
   gem 'rspec-rails', '2.13.1'
+  gem 'mysql2','~> 0.3.20'
 end
 
 group :test do
@@ -33,6 +33,7 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails' ,:require => false
   gem 'database_cleaner'
+  gem 'mysql2','~> 0.3.20'
 end
 
 gem 'sass-rails', '4.0.3'
@@ -54,4 +55,5 @@ end
 group :production do
 
   gem 'rails_12factor', '0.0.2'
+	gem 'postgres'
 end
