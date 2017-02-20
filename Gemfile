@@ -8,6 +8,7 @@ gem 'byebug'
 gem 'bcrypt'
 gem 'slim'
 gem 'sass'
+gem 'mysql2','~> 0.3.20'
 #Image upload and process
 gem "carrierwave"
 gem "carrierwave-crop"
@@ -24,7 +25,6 @@ group :development, :test do
   #gem 'sqlite3', '1.3.8'
 
   gem 'rspec-rails', '2.13.1'
-  gem 'mysql2','~> 0.3.20'
 end
 
 group :test do
@@ -54,5 +54,4 @@ end
 group :production do
 
   gem 'rails_12factor', '0.0.2'
-	gem 'pg'
 end
