@@ -4,7 +4,8 @@ SampleApp::Application.routes.draw do
       get :confirm_email
     end
   end
-  resources :papers
+  resources :clubs
+  resources :user_follows, only: [:show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'

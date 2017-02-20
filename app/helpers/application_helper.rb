@@ -24,4 +24,20 @@ module ApplicationHelper
         flash_type.to_s
     end
   end
+
+  def pluralize_without_count(count, noun, text = nil)
+    if count != 0
+      count == 1 ? "#{noun}#{text}" : "#{noun.pluralize}#{text}"
+    end
+  end
+  def flash_modals
+    [:alert,:notice]
+  end
+  def clear_flash_modals
+    flash_modals.each do |symbol|
+      if !flash[symbol].nil?
+        flash.discard[symbol]
+      end
+    end
+  end
 end

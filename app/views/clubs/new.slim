@@ -1,0 +1,19 @@
+
+h1 Register
+
+div.row
+  div.span6.offset3
+    = form_for @club do |f|
+      - if @club.errors.any?
+        div id = ('error_explanation')
+          h2
+            = pluralize(@club.errors.count, "error") + 'prohibited this user from being saved:'
+          ul
+            - @club.errors.full_messages.each do |msg|
+              li
+                =msg
+      div.field
+        =f.label :name, maxlength:30
+        =f.text_field :name
+      div.actions
+        =f.submit "Ok", class: 'btn.btn-large.btn-primary', data: {disable_with: "Lets roll."}

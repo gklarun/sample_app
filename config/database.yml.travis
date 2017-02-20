@@ -1,20 +1,24 @@
 development:
-  adapter: postgresql
+  adapter: mysql
   pool: 5
   # these are our new parameters
   encoding: UTF-8
   database: serler_development
   host: localhost
-  username: gklarun
-  password: password
+  username: root
+  password: <%= ENV['WAYWISER_DATABASE_PASSWORD'] %>
 
 test: &test
+  username: gklarun
+  password: password
   adapter: postgresql
   encoding: unicode
   database: travis_ci_test
 
 production:
   # this won't work
+   username: gklarun
+   password: password
   adapter: postgresql
   encoding: unicode
   database: serler_production

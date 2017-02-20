@@ -1,0 +1,29 @@
+- @title = "Edit Profile"
+h3 Edit Club
+.row
+  .span6.off3
+    = form_for user, method: :put  do |f|
+      - if @user.errors.any?
+        div id = ('error_explanation')
+          h2
+            = pluralize(@user.errors.count, "error") + 'prohibited this user from being saved:'
+          ul
+            - @user.errors.full_messages.each do |msg|
+              li
+                =msg
+      .field
+        = f.label :first_name
+        = f.text_field :first_name, maxlength: 30
+      .field
+        = f.label :last_name
+        = f.text_field :name, maxlength: 30
+      .field
+        = f.label :password
+        = f.text_field :password, maxlength: 30
+      .field
+        = f.label :password_confirmation
+        = f.text_field :password_confirmation, maxlength: 30
+
+      .actions
+        = f.submit 'Update info', class: 'btn btn-large btn-primary', id: "club-edit-submit", data: { disable_with: "Saving..." }
+= link_to 'Back', users_path

@@ -1,0 +1,20 @@
+- Activity.non_other_activities.each do |activity|
+    .ABlock
+      h3 = activity.to_s
+    .Columns.isMobile
+      .Column.is4.is6Mobile
+        = render partial: 'user_endorsements/prompt_endorsement', collection: Endorsement.featured.where(activity: activity), locals: {user_endorsements: @user_endorsements}
+      .Column.isNarrow
+        - icon_name = "of#{activity.to_s.capitalize}"
+        span class="AnIcon #{icon_name} is64x64"
+h3.ABlock Some of my other interests include:
+#other_interests_container.ABlock
+  = render partial: 'user_endorsements/prompt_endorsement', collection: Endorsement.featured.where(activity: nil), locals: {user_endorsements: @user_endorsements}
+
+#user-page-endorsements
+  #endorsement-container
+    = form_tag [current_user, :user_endorsements], method: :post, remote: true do
+      p.AControl
+        = autocomplete_field_tag :name, '', autocomplete_endorsement_name_endorsements_path, class: 'new-endorsement-name', placeholder: "Other intersets? Start typing..."
+      /p.AControl
+      /  = submit_tag 'Add endorsement', class:"ABtn isPrimary"

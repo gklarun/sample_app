@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :has_permission? , only: [:edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -57,10 +58,15 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    if current_user?(@user)
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Sorry. You dont have the permission"
+      redirect_to clubs_url
     end
   end
 
@@ -81,6 +87,16 @@ class UsersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def has_permission?
+    if @user != current_user
+      respond_to do |format|
+        flash[:error] = " You dont have permission "
+        format.html { render action: 'show'}
+        format.json { head :no_content }
+      end
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,14 @@
+- if current_user
+  .followActionContainer class = ('follow-followable-' + followable.id.to_s)
+    - if current_user != followable
+      - unless current_user.following?(followable)
+        = link_to "Follow", user_follows_path(id: followable, followable_type: followable.class.to_s),
+                class: "ABtn isPrimary isOutlined isShort hasRadius",
+                method: :post,
+                remote: true
+      - else
+        = link_to "Unfollow", user_follow_path(id: followable,
+                followable_type: followable.class.to_s),
+                class: "ABtn isShort isInfo hasRadius",
+                method: :delete,
+                remote: true

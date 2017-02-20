@@ -1,0 +1,40 @@
+-provide(:title,@user.first_name)
+p id="notice"
+  = notice
+/!p
+    p
+    strong First Name:
+    = @user.first_name
+    p
+    strong Last Name
+    = @user.last_name
+    p
+    strong Emal
+    = @user.email
+    - if signed_in?
+      - if current_user?(@user)
+        = link_to "edit" , edit_user_path(@user)
+        br
+        = link_to "New Club", new_club_path
+    p
+    = link_to "Back" , users_path
+.n1
+  .n-profile-bar
+   .name
+     h3
+       = @user.first_name + " " + @user.last_name
+     p Club Owner
+
+
+   .about
+    .my
+        img src="http://profile.ak.fbcdn.net/hprofile-ak-prn1/c50.50.629.629/s160x160/72119_100897860077123_541454148_n.jpg"
+    .n-contact
+      ul
+        li class="dribble"
+          = link_to @user.email,"#"
+        li class="dribble"
+          = link_to "#{@user.first_name}  clubs" , clubs_path
+        - if current_user == @user
+          li class ="dribble"
+            = link_to "Create New clubs" , new_club_path

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  include Followable
   before_create :create_remember_token
   before_create :confirmation_token
   before_save { self.email = email.downcase }
@@ -7,8 +9,10 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX } ,uniqueness: {case_sensitive: false}
   validates :password, length: { minimum: 6 }
+  has_many :clubs, dependent: :destroy
   has_secure_password
 
+  mount_uploader :photo, ProfilePhotoUploader
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -21,6 +25,10 @@ class User < ActiveRecord::Base
     self.email_confirmed = true
     self.confirm_token = nil
     save!(:validate => false)
+  end
+
+  def full_name
+    self.first_name + " " + self.last_name
   end
 
   private

@@ -1,0 +1,11 @@
+- @title = "Edit Profile"
+h3 Edit Club
+.row
+  .span6.off3
+    = form_for @club, method: :put  do |f|
+      .field
+        = f.label :name
+        = f.text_field :name, maxlength: 30
+
+      .actions
+        = f.submit 'Update info', class: 'btn btn-large btn-primary', id: "club-edit-submit", data: { disable_with: "Saving..." }

@@ -8,7 +8,6 @@ class CreatePapers < ActiveRecord::Migration
       t.string :speciality
       t.string :doi
       t.string :journal
-
       t.timestamps null: false
     end
   end

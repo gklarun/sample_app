@@ -1,0 +1,10 @@
+.ALevel.isMobile
+  .ALevel-item
+    h4.ABlock
+      = "Followed by #{@followable.to_s}:"
+  .ALevel-item.isNarrow
+    button.ABtn.ALink data = {dismiss: "modal"} X
+.Scrollbox
+  .ABlock
+    - @following.each do |follower|
+      = render partial: "user_follows/follower", object: follower

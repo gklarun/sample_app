@@ -1,0 +1,44 @@
+.AGridBlock.is3OnTablet.isLeftOnTablet
+  figure.APhoto.is128x128.withSmallRadius
+/    = #@club.logo_photo
+  /.hasTextCentered
+  /  = link_to "Follow", "#", class: "ABtn isLink"
+
+.AGridBlock.is9OnTablet.isRightOnTablet
+  section.ASection
+    h1.ATitle
+      = @club.name
+    .center
+      = render partial: "user_follows/follow_action", locals: {followable: @club}
+
+div id = "site_content"
+  div id = "sidebar_container"
+    .sidebar
+      h3 Club owner
+      =  link_to @club.user.first_name + ' ' +  @club.user.last_name, user_path(@club.user)
+    .sidebar
+      h3 Followers
+      .ABlock.hasTextCentered
+        = render partial: "user_follows/follow_summary", locals: {followable: @club}
+
+
+
+  .AGridBlock.is9OnTablet.isRightOnTablet
+    section.ASection
+      h4.ATitle
+        = "Club owner" + @club.user.first_name + ' ' +  @club.user.last_name
+
+  .AGridBlock.is9OnTablet.isRightOnTablet
+    /! - unless @club.comments.blank
+        .Columns.isMultiline
+          = render @comments
+
+  .AGridBlock.is3OnTablet.isLeftOnTablet
+    .ABlock.hasTextCentered
+      p
+      - if current_user?(@club.user)
+          hr
+          p
+            h4 Admin controls
+          p
+            = link_to "Edit", edit_club_path(@club), class: "ABtn isFullwidth"

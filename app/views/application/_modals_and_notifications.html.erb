@@ -1,0 +1,44 @@
+<!-- Footer Notification - fades in and out-->
+
+<%clear_flash_modals%>
+
+<%#---- Render modals triggered by AJAX request, like sign up form, with this generic container. %>
+<div class="modal full-screen" id="generic_modal" role="dialog"></div>
+
+<%#---- Render custom modals triggered by controllers %>
+<% if @prompt_modal %>
+<div class="modal full-screen" id="prompt_modal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div class="modal-header">
+        <% if @prompt_modal.partial_header %>
+          <%= render partial: @prompt_modal.partial_header %>
+        <% elsif @prompt_modal.partial_title %>
+          <h2><%= @prompt_modal.partial_title %></h2>
+        <%end%>
+      </div>
+			<div class="modal-body">
+        <%if @prompt_modal.markdown_text%>
+          <%=@prompt_modal.markdown_text.html_safe%>
+        <%elsif @prompt_modal.partial %>
+          <%= render partial: @prompt_modal.partial%>
+        <%end%>
+			</div>
+			<div class="modal-footer">
+				<% if @prompt_modal.partial_footer %>
+          <%= render partial: @prompt_modal.partial_footer %>
+        <% else %>
+          <button type="button" class="ABtn isPrimary" data-dismiss="modal" autofocus>Got It</button>
+        <%end%>
+			</div>
+		</div>
+	</div>
+</div>
+	<script>
+		$('.modal-backdrop.in').remove()
+		$(document).ready(function(){
+			$("#prompt_modal").modal({backdrop: true});
+		});
+	</script>
+<%end%>
+

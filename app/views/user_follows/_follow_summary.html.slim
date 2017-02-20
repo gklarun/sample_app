@@ -1,0 +1,17 @@
+.followSummaryContainer class = ('follow-followable-summary-' + followable.id.to_s)
+  - followers = followable.followers
+  - if followers.present?
+    - count = followers.count
+    p
+      = link_to user_follow_path(id: followable, followable_type: followable.class.to_s, followers: true), remote: true do
+        strong = count.to_s + ' '
+        = pluralize_without_count(count, 'followers', text = nil)
+
+  - if followable.class.to_s == "User "
+    - following = followable.following
+    - if following.present?
+      - count = following.count
+      p
+        = link_to user_follow_path(id: followable, followable_type: followable.class.to_s, following: true), remote: true do
+          strong = count.to_s + ' '
+          | following

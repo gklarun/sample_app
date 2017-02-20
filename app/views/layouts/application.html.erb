@@ -28,6 +28,9 @@
 <%= render 'layouts/header' %>
 <div class="container">
   <%= yield %>
+  <div id = "notifications-container">
+    <%= render 'modals_and_notifications'%>
+  </div>
 
   <%= render partial: "layouts/flash_messages", flash: flash %>
   <%= render 'layouts/footer' %>

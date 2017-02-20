@@ -1,0 +1,12 @@
+h1 Clubs
+table
+  thead
+    tr
+      th Name
+      th Club Owner
+
+  tbody
+    - @clubs.each do |club|
+      tr
+        td = link_to club.name, club_path(club)
+        td = link_to club.user.first_name, user_path(club.user)

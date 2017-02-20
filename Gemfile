@@ -1,11 +1,26 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.8'
-gem 'pg'
+gem 'rake', '11.3.0'
+gem 'mysql2','~> 0.3.20'
 gem 'byebug'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
+gem 'slim'
+gem 'sass'
+#Image upload and process
+gem "carrierwave"
+gem "carrierwave-crop"
+gem "copy_carrierwave_file"
+#Note: to install this gem need to run sudo apt-get install libmagickwand-dev, or sudo gem install rmagick.
+# Otherwise, if now running a new version of ruby, make sure openssl isn't screwing you:
+# rvm pkg install openssl
+# rvm reinstall all --force
+gem 'rmagick'
+
+gem 'bootstrap-modal-rails'
+
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
 

@@ -1,0 +1,7 @@
+$followActionContainer = $(".<%=j "follow-followable-" + @followable.id.to_s%>")
+if ($followActionContainer.length)
+  $followActionContainer.replaceWith("<%=j render partial: 'user_follows/follow_action', locals: {followable: @followable}  %>")
+
+$followSummaryContainer = $(".<%=j "follow-followable-summary-" + @followable.id.to_s%>")
+if ($followSummaryContainer.length)
+  $followSummaryContainer.replaceWith("<%=j render partial: 'user_follows/follow_summary', locals: {followable: @followable}  %>")

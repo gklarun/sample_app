@@ -1,0 +1,22 @@
+.DropdownPrompt-body
+  .Columns.isMultiline
+    .Column.isOffset4Desktop.is4Desktop.isOffset2Tablet.is8Tablet
+      .hasTextCentered
+        h3
+          | Rick, I'm interested in the following:
+    br
+    .Column.isOffset4Desktop.is4Desktop.isOffset2Tablet.is8Tablet
+      - current_user.interests.not_yet_specificed_interested.each do |interest|
+        div class="interested-toggles"
+          .ALevel.isMobile.isAlignedRight
+            .ALevel-item
+              .ALevel.isMobile.isAlignedLeft
+                = content_tag(:i, nil, class: "AnIcon #{activity_icon_name interest.activity} is48x48 isOrange")
+                h4 = interest.activity.name
+            .ALevel-item.hasTextRight
+              = render partial: "interests/interested_buttons", locals: {interest: interest, activity: interest.activity}
+      br
+      div.hasTextCentered
+        button class = "ABtn isPrimary promptDismiss"
+          | Roger
+

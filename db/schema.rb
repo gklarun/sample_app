@@ -11,39 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928040335) do
+ActiveRecord::Schema.define(version: 20170219071012) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  create_table "clubs", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
 
   create_table "papers", force: true do |t|
     t.integer  "paper_id"
-    t.string   "title",      limit: nil
-    t.string   "author",     limit: nil
-    t.string   "speciality", limit: nil
-    t.string   "doi",        limit: nil
-    t.string   "journal",    limit: nil
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title"
+    t.string   "author"
+    t.string   "speciality"
+    t.string   "doi"
+    t.string   "journal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  create_table "user_follows", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followable_id",              null: false
+    t.string   "followable_type", limit: 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_follows", ["followable_id", "followable_type"], name: "index_user_follows_on_followable_id_and_followable_type", using: :btree
+  add_index "user_follows", ["follower_id"], name: "index_user_follows_on_follower_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.integer  "user_id"
-    t.string   "first_name",      limit: nil
-    t.string   "last_name",       limit: nil
-    t.string   "email",           limit: nil
-    t.string   "password_digest", limit: nil
-    t.boolean  "common_user"
-    t.boolean  "moderator"
-    t.boolean  "analyst"
-    t.boolean  "admin"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_token"
-    t.boolean  "email_confirmed",             default: false
+    t.boolean  "email_confirmed", default: false
     t.string   "confirm_token"
   end
-
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
