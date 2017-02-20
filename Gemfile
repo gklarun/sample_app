@@ -33,7 +33,6 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails' ,:require => false
   gem 'database_cleaner'
-  gem 'mysql2','~> 0.3.20'
 end
 
 gem 'sass-rails', '4.0.3'
