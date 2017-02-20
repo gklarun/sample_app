@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="66b9daa4-9e92-4a91-b01c-73d00e9ec398" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
     </list>
     <ignored path="sample_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -579,7 +578,7 @@
       <workItem from="1476705315207" duration="529000" />
       <workItem from="1487382683661" duration="14548000" />
       <workItem from="1487459993929" duration="46099000" />
-      <workItem from="1487535074461" duration="22269000" />
+      <workItem from="1487535074461" duration="22313000" />
     </task>
     <task id="LOCAL-00001" summary="Sprint One-Initial">
       <created>1473955380481</created>
@@ -714,11 +713,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487564149746</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Travis ruby config change :db migrate">
+      <created>1487565031910</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1487565031910</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221066000" />
+    <option name="totallyTimeSpent" value="221110000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
