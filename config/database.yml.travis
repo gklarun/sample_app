@@ -6,7 +6,7 @@ development:
   database: serler_development
   host: localhost
   username: root
-  password: <%= ENV['WAYWISER_DATABASE_PASSWORD'] %>
+  password: password
 
 test: &test
   username: gklarun
