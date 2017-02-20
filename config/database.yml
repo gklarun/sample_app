@@ -17,7 +17,7 @@ default: &default
  encoding: utf8mb4
  pool: 5
  username: root
- password: <%= ENV['WAYWISER_DATABASE_PASSWORD'] %>
+ password: password
  host: localhost
 
 development:

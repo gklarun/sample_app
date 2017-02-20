@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :clubs, dependent: :destroy
   has_secure_password
 
-  mount_uploader :photo, ProfilePhotoUploader
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

@@ -28,13 +28,13 @@ p id="notice"
 
    .about
     .my
-        img src="http://profile.ak.fbcdn.net/hprofile-ak-prn1/c50.50.629.629/s160x160/72119_100897860077123_541454148_n.jpg"
+      = image_tag("profile_stock.png")
     .n-contact
       ul
         li class="dribble"
           = link_to @user.email,"#"
-        li class="dribble"
-          = link_to "#{@user.first_name}  clubs" , clubs_path
         - if current_user == @user
           li class ="dribble"
             = link_to "Create New clubs" , new_club_path
+          li class ="dribble"
+            = link_to "Edit profile",  edit_user_path

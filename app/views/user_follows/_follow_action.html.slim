@@ -3,12 +3,12 @@
     - if current_user != followable
       - unless current_user.following?(followable)
         = link_to "Follow", user_follows_path(id: followable, followable_type: followable.class.to_s),
-                class: "ABtn isPrimary isOutlined isShort hasRadius",
+                class: "btn btn-large btn-primary",
                 method: :post,
                 remote: true
       - else
         = link_to "Unfollow", user_follow_path(id: followable,
                 followable_type: followable.class.to_s),
-                class: "ABtn isShort isInfo hasRadius",
+                class: "btn btn-large btn-primary",
                 method: :delete,
                 remote: true

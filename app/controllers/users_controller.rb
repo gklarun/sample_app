@@ -86,7 +86,13 @@ class UsersController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    user = User.where(id: params[:id])
+    if user.any?
+      @user = user.first
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
+    end
   end
 
   def has_permission?

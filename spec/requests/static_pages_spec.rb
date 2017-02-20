@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Static pages" do
-  let(:base_title) { "Serler-web-app" }
+  let(:base_title) { "Club" }
   describe "Home page" do
 
     it "should have the content 'Welcome to serler'" do

@@ -1,15 +1,14 @@
 .ALevel.isMobile
   .ALevel-item
     h4.ABlock
-      = "Following #{@followable.to_s}:"
+      = "Following #{@followable.name.to_s}:"
   .ALevel-item.isNarrow
     button.ABtn.ALink data = {dismiss: "modal"} X
 .ALevel.isMobile
   .ALevel-item.isNarrow.hasRightMargin
     span.AnIcon.ofTooltip
   .ALevel-item.isAlignedLeft
-    h6
-      i Followers receive notifications when #{@followable.to_s} creates or joins a trip/event
+
 .Scrollbox
   .ABlock
     - @followers.each do |follower|

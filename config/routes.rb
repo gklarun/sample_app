@@ -7,6 +7,9 @@ SampleApp::Application.routes.draw do
   resources :clubs
   resources :user_follows, only: [:show, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+  get "clubs/delete/:id", controller: 'clubs', action: 'delete', as: "delete_club"
+
+
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
